@@ -1,0 +1,2 @@
+## ignore precompiled byte code
+__pycache__/
