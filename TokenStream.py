@@ -1,5 +1,6 @@
 __author__ = "Osmar Gómez A. <tutor.the.code@gmail.com>"
 
+from dataclasses import dataclass
 from enum import Enum
 import sys
 from io import (TextIOWrapper, 
@@ -65,12 +66,11 @@ class NotExpectedError(EvaluatorError):
 class BadIdentifierError(EvaluatorError):
 	"Names of variables should be one character long"
 
-	
+@dataclass
 class Token:
 	
-	def __init__(self, kind: Lexeme, value: str) -> None:
-		self.kind = kind
-		self.value = value 
+	kind: Lexeme
+	value: str
 
 	def __repr__(self):
 		return (F"{self.__class__.__name__}("
@@ -81,7 +81,23 @@ class Token:
 		if spec == 'v': return self.value 
 		return super().__format__(spec)
 
-	__slots__ = ('kind', 'value')
+	
+# class Token:
+	
+# 	def __init__(self, kind: Lexeme, value: str) -> None:
+# 		self.kind = kind
+# 		self.value = value 
+
+# 	def __repr__(self):
+# 		return (F"{self.__class__.__name__}("
+# 			F"{self:k}, '{self:v}')")
+
+# 	def __format__(self, spec):
+# 		if spec == 'k': return f"{self.kind:n}".upper()
+# 		if spec == 'v': return self.value 
+# 		return super().__format__(spec)
+
+# 	__slots__ = ('kind', 'value')
 
 ## Represents a stream of characters from some input source
 ## default source is sys.stdin. This class for the use of
@@ -197,11 +213,23 @@ class TokenStream(_CharStream):
 		else:
 			return Token(Lexeme(c), c)
 
-	def __iter__(self): return self 
+	def __iter__(self): 
+
+		return self 
+
+	# def __next__(self):
+	# 	tok = self.next()
+	# 	if tok.kind is END: 
+	# 		raise StopIteration()
+	# 	return tok 
 
 	def __next__(self):
-		tok = self.next()
-		if tok.kind is END: 
-			raise StopIteration()
-		return tok 
+
+		match self.next():
+			case Token(Lexeme.End, _):
+				raise StopIteration()
+			case tok:
+				return tok
+
+ts = TokenStream() ## Read tonkens from standard input stream
 
