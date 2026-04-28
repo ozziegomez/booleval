@@ -231,5 +231,7 @@ class TokenStream(_CharStream):
 			case tok:
 				return tok
 
-ts = TokenStream() ## Read tonkens from standard input stream
+
+
+
 

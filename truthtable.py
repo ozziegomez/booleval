@@ -38,7 +38,7 @@ Prints the Truth Table for the given expression.
 
 from TableParse import *
 from TokenStream import (EXIT, END, EvaluatorError, 
-	                     Stream, SEEK_SET, ts)
+	                     Stream, SEEK_SET, TokenStream)
 
 class TruthTable:
 	""
@@ -91,22 +91,24 @@ class TruthTable:
 
 
 def main():
-
-	print("> ", end="", flush=True)
-	while (tok := ts.next()).kind is not EXIT:
- 		try:
-	 		ts.putback(tok)
-	 		print(f"{TruthTable(ts)}")
-
- 		except (EvaluatorError, Exception) as e:
-	 		print(f"{type(e).__name__}: {e}")
-	 		if isinstance(e, ValueError):
-	 			while ts.next().kind is not END: "clean up buffer"
-	 		ts = TokenStream()
-
-	 	print("> ", end="", flush=True)
-
-
+    """Entry Point"""
+    
+    ts = TokenStream()
+    print("> ", end = "", flush = True)
+    
+    # Iterate tokens
+    while (tok := ts.next()).kind is not EXIT:
+        try:
+            ts.putback(tok)
+            print(f"{TruthTable(ts)}")
+        except (EvaluatorError, Exception) as e:
+            print(f"{type(e).__name__}: {e}")
+            if isinstance(e, ValueError):
+                while ts.next().kind is not END: "Clean up buffer"
+            ts = TokenStream() # Recreate the token stream 
+        # Prompt
+        print("> ", end = "", flush = True)
+    
 if __name__ == '__main__':
 	main()
 
