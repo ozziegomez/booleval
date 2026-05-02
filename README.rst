@@ -64,10 +64,10 @@ Ejemplos
 ~~~~~~~~
 
 Cada expresión lógica debe terminar en '``;``', esto hace posible que ``booleval`` pueda procesar varias de estas 
-al mismo tiempo (separadas por ``;``). La siguiente expresión lógica :math:`(p\ \wedge\ q → r)` se la podemos 
+al mismo tiempo (separadas por ``;``). La siguiente expresión lógica (p ∧ q → r) se la podemos 
 pasar a ``booleval`` como: :code: `(p & q -> r);`. **Nota**: la precedencia y asociatividad de los conectores lógicos está programada 
 en la utilidad, por lo que todas las siguientes expresiones 
-son equivalentes: :math: `(p\ \wedge\ q) → r \equiv \{(p\ \wedge\ q) → r\}  \equiv p\ \wedge\ q → r`.
+son equivalentes: (p ∧ q) → r ≡ {(p ∧ q) → r} ≡ p ∧ q → r.
 
 **Uso**
 
