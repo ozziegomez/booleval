@@ -72,7 +72,7 @@ Cada expresión lógica debe terminar en '``;``', esto hace posible que ``boolev
 .. code :: 
 
 	$ python -m booleval              
-    $ python -m booleval < props.txt  ## redirección	
+	$ python -m booleval < props.txt  ## redirección	
 
 Luego de ejecutar el comando anterior, la utilidad nos responde mostrandonos el siguiente *prompt* '``>``' que nos señala que está lista para evaluar expresiones:
 
