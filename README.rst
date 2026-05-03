@@ -126,14 +126,14 @@ La línea final de la tabla muestra si se trata de una *Tautología* (``tautolog
 
 - **Ejemplo Complejo**: 
 
-Una proposición ``{[(p ∧ q) → ¬r] ↔ [(s ∨ ¬t) ∧ (r → p)]}`` (1)requiere generar ``2⁵ = 32``
+Una proposición ``{[(p ∧ q) → ¬r] ↔ [(s ∨ ¬t) ∧ (r → p)]}`` (1) requiere generar ``2⁵ = 32``
 filas necesarias para las 5 variables; (2) las entradas de las variables ``(p, q, r, s, t)`` deben
 seguir el orden binario estándar fundamental para legibilidad técnica; (3) comprobar:
 
 	1. A = (p ∧ q) → ¬r
 	2. B = (s ∨ ¬t)
 	3. C = (r → p)
-	4. D = B ∧ 
+	4. D = B ∧ C  
 	
 	**Resultado Final**: A ↔ D
 
@@ -192,8 +192,6 @@ seguir el orden binario estándar fundamental para legibilidad técnica; (3) com
 
 	$> exit 
 	
-
-
 
 
 To Do
