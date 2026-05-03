@@ -90,7 +90,7 @@ Luego de ejecutar el comando anterior (entrada estándar), la utilidad nos respo
 
 	$> ~(p & q) <-> (~p | ~q);  # De Morgan's Law
 
-- **Salida**. 
+- **Salida**: 
 
 La línea final de la tabla muestra si se trata de una *Tautología* (``tautology``), *Contradicción* (``contradiction``) o una *Contingencia* (``contingent``):
 
@@ -105,7 +105,7 @@ La línea final de la tabla muestra si se trata de una *Tautología* (``tautolog
 	======================================================
 	~(p&q)<->(~p|~q) = tautology
 
-
+	
 ----------
 
 		**Nota**: algunos prefieren que la tabla anterior se mostrara así:
@@ -124,6 +124,75 @@ La línea final de la tabla muestra si se trata de una *Tautología* (``tautolog
 
 ----------
 
+- **Ejemplo Complejo**: 
+
+Una proposición ``{[(p ∧ q) → ¬r] ↔ [(s ∨ ¬t) ∧ (r → p)]}`` (1)requiere generar ``2⁵ = 32``
+filas necesarias para las 5 variables; (2) las entradas de las variables ``(p, q, r, s, t)`` deben
+seguir el orden binario estándar fundamental para legibilidad técnica; (3) comprobar:
+#. A = (p ∧ q) → ¬r
+#. B = (s ∨ ¬t)
+#. C = (r → p)
+#. D = B ∧ C
+**Resultado Final:** A ↔ D
+
+- **Entrada**:
+
+.. code ::
+
+	$> {[(p & q) -> ~r] <-> [(s | ~t) & (r -> p)]};
+	
+- **Salida** (copiada directo de la terminal):
+
+.. code ::
+
+	p  q  r  s  t  (p&q)  ~r  [(p&q)->~r]  ~t  (s|~t)  (r->p)  [(s|~t)&(r->p)]  {[(p&q)->~r]<->[(s|~t)&(r->p)]}
+	===========================================================================================================
+	V  V  V  V  V    V     F       F        F     V       V           V                        F
+	V  V  V  V  F    V     F       F        V     V       V           V                        F
+	V  V  V  F  V    V     F       F        F     F       V           F                        V
+	V  V  V  F  F    V     F       F        V     V       V           V                        F
+	V  V  F  V  V    V     V       V        F     V       V           V                        V
+	V  V  F  V  F    V     V       V        V     V       V           V                        V
+	V  V  F  F  V    V     V       V        F     F       V           F                        F
+	V  V  F  F  F    V     V       V        V     V       V           V                        V
+	V  F  V  V  V    F     F       V        F     V       V           V                        V
+	V  F  V  V  F    F     F       V        V     V       V           V                        V
+	V  F  V  F  V    F     F       V        F     F       V           F                        F
+	V  F  V  F  F    F     F       V        V     V       V           V                        V
+	V  F  F  V  V    F     V       V        F     V       V           V                        V
+	V  F  F  V  F    F     V       V        V     V       V           V                        V
+	V  F  F  F  V    F     V       V        F     F       V           F                        F
+	V  F  F  F  F    F     V       V        V     V       V           V                        V
+	F  V  V  V  V    F     F       V        F     V       F           F                        F
+	F  V  V  V  F    F     F       V        V     V       F           F                        F
+	F  V  V  F  V    F     F       V        F     F       F           F                        F
+	F  V  V  F  F    F     F       V        V     V       F           F                        F
+	F  V  F  V  V    F     V       V        F     V       V           V                        V
+	F  V  F  V  F    F     V       V        V     V       V           V                        V
+	F  V  F  F  V    F     V       V        F     F       V           F                        F
+	F  V  F  F  F    F     V       V        V     V       V           V                        V
+	F  F  V  V  V    F     F       V        F     V       F           F                        F
+	F  F  V  V  F    F     F       V        V     V       F           F                        F
+	F  F  V  F  V    F     F       V        F     F       F           F                        F
+	F  F  V  F  F    F     F       V        V     V       F           F                        F
+	F  F  F  V  V    F     V       V        F     V       V           V                        V
+	F  F  F  V  F    F     V       V        V     V       V           V                        V
+	F  F  F  F  V    F     V       V        F     F       V           F                        F
+	F  F  F  F  F    F     V       V        V     V       V           V                        V
+	===========================================================================================================
+	{[(p&q)->~r]<->[(s|~t)&(r->p)]} = contingent
+
+
+- **Salir de la herramienta**:
+
+.. code ::
+
+	$> exit 
+	
+
+
+
+
 To Do
 =====
 
@@ -131,6 +200,8 @@ To Do
 - Agregar una interfaz gráfica (GUI)
 - Implementar más *features* 
 - Más conectores; conectores alternativos...
+- Exportar a distintos formatos (Markdown, reStructuredText, etc.)?
+
 
 
 License
