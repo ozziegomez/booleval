@@ -133,8 +133,9 @@ seguir el orden binario estándar fundamental para legibilidad técnica; (3) com
 	1. A = (p ∧ q) → ¬r
 	2. B = (s ∨ ¬t)
 	3. C = (r → p)
-	4. D = B ∧ C
-	**Resultado Final:** A ↔ D
+	4. D = B ∧ 
+	
+	**Resultado Final**: A ↔ D
 
 
 - **Entrada**:
