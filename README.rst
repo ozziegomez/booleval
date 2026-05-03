@@ -196,19 +196,15 @@ seguir el orden binario estándar fundamental para legibilidad técnica; (3) com
 **Capturas de Pantalla**
 ========================
 
-.. list-table::
-	:widths: 50 50
-	:align: center
-	
-	*- .. figure:: images/out1.png
-		:alt: Terminal estándar (CMD)
+.. figure:: images/out1.png
+	:alt: Terminal estándar (CMD)
 		
-		Corrida en la CMD 
+	Corrida en la CMD 
+
+.. figure:: images/out2.png 
+	:alt: Ejecución en PowerShell
 		
-	- .. figure:: images/out2.png 
-		:alt: Ejecución en PowerShell
-		
-		Salida en PowerShell
+	Salida en PowerShell
 
 To Do
 =====
